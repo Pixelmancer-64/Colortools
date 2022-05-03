@@ -1,0 +1,28 @@
+{
+  "name": "colortools",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@jaames/iro": "^5.5.2",
+    "@reach/dialog": "^0.17.0",
+    "@reach/slider": "^0.17.0",
+    "babel-preset-next": "^1.4.0",
+    "chroma-js": "^2.4.2",
+    "mongodb": "^4.5.0",
+    "mongoose": "^6.3.1",
+    "next": "12.1.5",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.5"
+  }
+}
