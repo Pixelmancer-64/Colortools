@@ -16,3 +16,32 @@ export const ColorArea = styled.div`
   background-color: ${({ color }) => color};
   box-shadow: 0 0 0 10px white;
 `;
+
+export const ColorpickerInput = styled.input`
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
+`;
+// export const ColorpickerInputContainer = styled.div`
+//   &:after {
+//     display: block;
+//     content: "";
+//     border-bottom: 2px solid hsla(180, 2%, 67%, 1);
+//     transform: scaleX(0);
+//     transition: transform 250ms ease-in-out;
+//   }
+
+//   &:hover{
+//     &:after{
+//       transform: scaleX(1);
+//     }
+//   }
+
+//   ${ColorpickerInput}:focus{
+//     &:after{
+//       transform: scaleX(1);
+//     }
+//   }
+
+// `;

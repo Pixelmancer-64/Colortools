@@ -1,70 +1,36 @@
-import IroColorPicker from "../../components/App/IroColorPicker";
-import iro from "@jaames/iro";
+import Colorpicker from "../../components/App/Colorpicker";
 import { useState, useEffect } from "react";
-import chroma from "chroma-js";
-import {
-  ColorArea,
-  ColorpickerContainer,
-} from "../../components/styles/Colorpicker.styled";
+import Colorbox from "../../components/App/Colorbox";
 
 export default function New() {
   const [color, setColor] = useState({ h: 159, s: 100, l: 79, a: 1 });
-  // const [inputColor, setInputColor] = useState({ h: 159, s: 100, l: 79, a: 1 });
   const [inputColorString, setInputStringColor] = useState(
-    "hsla(150,100%,50%,1)"
+    ""
   );
+  const [colorArray, setColorArray] = useState([]);
 
   useEffect(() => {
-    const { h, s, l, a } = color;
-    setInputStringColor(`hsla(${h}, ${s}%, ${l}%, ${a})`);
-  }, [color]);
+    setColorArray([...colorArray, inputColorString]);
+  }, [inputColorString]);
 
   return (
-    <ColorpickerContainer>
-      <input
-        type="text"
-        value={inputColorString}
-        onChange={(e) => {
-          const value = e.target.value;
-          setInputStringColor(value);
-          if (chroma.valid(value)) setColor(value);
-        }}
-      />
-
-      <IroColorPicker
+    <div>
+      <Colorpicker
         color={color}
-        onColorChange={(e) => setColor(e.hsla)}
-        layout={[
-          {
-            component: iro.ui.Wheel,
-          },
-          {
-            component: iro.ui.Slider,
-            options: {
-              sliderType: "hue",
-            },
-          },
-          {
-            component: iro.ui.Slider,
-            options: {
-              sliderType: "saturation",
-            },
-          },
-          {
-            component: iro.ui.Slider,
-            options: {
-              sliderType: "value",
-            },
-          },
-          {
-            component: iro.ui.Slider,
-            options: {
-              sliderType: "alpha",
-            },
-          },
-        ]}
+        setColor={setColor}
+        inputColorString={inputColorString}
+        setInputStringColor={setInputStringColor}
       />
-      <ColorArea color={inputColorString}></ColorArea>
-    </ColorpickerContainer>
+      {colorArray.map((color) => (
+        <Colorbox
+          key={color}
+          name={color}
+          color={color}
+          level={500}
+          openAlert={() => console.log("hi")}
+          format={"hex"}
+        />
+      ))}
+    </div>
   );
 }
