@@ -9,6 +9,7 @@ import {
   TextInput,
   Center
 } from "../../components/styles/CreatePalette";
+import { server } from "../../config/server";
 
 export default function New() {
   const [color, setColor] = useState({ h: 159, s: 100, l: 79, a: 1 });
@@ -22,7 +23,7 @@ export default function New() {
 
   async function save(e) {
     e.preventDefault();
-    await fetch("http://localhost:3000/api/palettes/add", {
+    await fetch(server + "/api/palettes/add", {
       method: "POST",
       headers: { "Content-Type": "applicaton/json" },
       body: JSON.stringify({

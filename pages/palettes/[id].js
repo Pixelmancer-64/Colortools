@@ -7,10 +7,11 @@ import {
   Footer,
 } from "../../components/styles/Palette.styled";
 import { generatePalette } from "../../components/helpers/Color.helper";
+import { server } from "../../config/server";
 
 export async function getStaticPaths() {
   const response = await (
-    await fetch("http://localhost:3000/api/palettes/find")
+    await fetch(server + "/api/palettes/find")
   ).json();
   return {
     paths: response.map((e) => {
@@ -27,7 +28,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { id } = params;
   const palette = await (
-    await fetch(`http://localhost:3000/api/palettes/findOne?name=${id}`)
+    await fetch(server + `/api/palettes/findOne?name=${id}`)
   ).json();
 
   return {
