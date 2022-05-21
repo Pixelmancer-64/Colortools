@@ -20,5 +20,8 @@ export const Highlited = styled(Link)`
 `
 
 export const Button = styled.button`
-
+  background: none;
+  color: #4A74FF;
+  font-size: 2rem;
+  border: 2px solid #4A74FF;
 `
