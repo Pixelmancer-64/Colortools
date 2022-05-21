@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const ColorpickerContainer = styled.div`
   background-color: ${(bgColor) => bgColor};
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 3vh;
   align-items: center;
+  height: 70%;
 `;
 
 export const ColorArea = styled.div`

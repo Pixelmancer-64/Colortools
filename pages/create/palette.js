@@ -1,11 +1,13 @@
 import Colorpicker from "../../components/App/Colorpicker";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Colorbox from "../../components/App/Colorbox";
 import { Button } from "../../components/styles/Button.styled";
 import {
   Container,
   Colors,
   InsertArea,
+  TextInput,
+  Center
 } from "../../components/styles/CreatePalette";
 
 export default function New() {
@@ -13,10 +15,6 @@ export default function New() {
   const [title, setTitle] = useState("");
   const [inputColorString, setInputStringColor] = useState("");
   const [colorsArray, setcolorsArray] = useState([]);
-
-  // useEffect(() => {
-  //   setcolorsArray([...colorsArray, inputColorString]);
-  // }, [inputColorString]);
 
   function add() {
     setcolorsArray([...colorsArray, inputColorString]);
@@ -43,11 +41,13 @@ export default function New() {
           inputColorString={inputColorString}
           setInputStringColor={setInputStringColor}
         />
-        <Button onClick={add}>Click ME!</Button>
-        <form onSubmit={save}>
-          <input type="text" onChange={(e) => setTitle(e.target.value)} />
-          <button>ADD ME</button>
-        </form>
+        <Button onClick={add}>Add color</Button>
+        <Center>
+          <form onSubmit={save}>
+            <TextInput type="text" onChange={(e) => setTitle(e.target.value)} />
+            <Button>Submit palette</Button>
+          </form>
+        </Center>
       </InsertArea>
       <Colors>
         {colorsArray.map((color) => (
