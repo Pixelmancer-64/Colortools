@@ -6,42 +6,26 @@ export const ColorpickerContainer = styled.div`
   flex-direction: column;
   gap: 3vh;
   align-items: center;
-  height: 70%;
+  height: 100%;
+  padding-bottom: calc(2rem + 10px);
 `;
 
 export const ColorArea = styled.div`
-  height: 40%;
-  width: 30%;
+  flex: 1;
+  width: 35%;
   border-radius: 10px;
   background-color: ${({ color }) => color};
   box-shadow: 0 0 0 10px white;
 `;
 
 export const ColorpickerInput = styled.input`
+  margin-top: 2rem; 
   color: white;
   background: none;
-  border: none;
-  outline: none;
+  border: 1px solid white;
+  padding: 0.5rem;
+  
+  &:focus{
+    outline: 3px solid white;
+  }
 `;
-// export const ColorpickerInputContainer = styled.div`
-//   &:after {
-//     display: block;
-//     content: "";
-//     border-bottom: 2px solid hsla(180, 2%, 67%, 1);
-//     transform: scaleX(0);
-//     transition: transform 250ms ease-in-out;
-//   }
-
-//   &:hover{
-//     &:after{
-//       transform: scaleX(1);
-//     }
-//   }
-
-//   ${ColorpickerInput}:focus{
-//     &:after{
-//       transform: scaleX(1);
-//     }
-//   }
-
-// `;

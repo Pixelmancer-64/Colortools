@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 30%;
+  flex-basis: 20%;
+  flex-grow: 1;
   background-color: white;
-  border: 1px solid black;
   border-radius: 12px;
   padding: 0.5rem;
   &:hover {

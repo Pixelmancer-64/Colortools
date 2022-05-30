@@ -44,10 +44,7 @@ export default function New() {
         />
         <Button onClick={add}>Add color</Button>
         <Center>
-          <form onSubmit={save}>
-            <TextInput type="text" onChange={(e) => setTitle(e.target.value)} />
-            <Button>Submit palette</Button>
-          </form>
+
         </Center>
       </InsertArea>
       <Colors>
@@ -62,6 +59,10 @@ export default function New() {
           />
         ))}
       </Colors>
+      <form onSubmit={save}>
+            <TextInput type="text" onChange={(e) => setTitle(e.target.value)} />
+            <Button>Submit palette</Button>
+          </form>
     </Container>
   );
 }
