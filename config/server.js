@@ -1,3 +1,3 @@
 const dev = process.env.NODE_ENV !== 'production';
 
-export const server = dev ? 'http://localhost:3000' : 'https://colortools.vercel.app';
+export const server = dev ? 'http://localhost:3000' : 'http://colortools.vercel.app';
