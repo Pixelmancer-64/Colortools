@@ -1,6 +1,7 @@
 import React from "react";
 import PaletteList from "../../components/App/PaletteList";
 import { Link } from "../../components/styles/Button.styled";
+import { find } from "../../components/helpers/DB/palettes/find";
 import {
   Container,
   CenteredButtons,
@@ -12,7 +13,7 @@ export default function Palettes({ palettes }) {
       <Container>
         <CenteredButtons>
           <Link href="/colorpicker">Colorpicker</Link>
-          <Link href="/create/palette">Create palette</Link>
+          {/* <Link href="/create/palette">Create palette</Link> */}
         </CenteredButtons>
         <PaletteList palettes={palettes} />
       </Container>
@@ -21,13 +22,11 @@ export default function Palettes({ palettes }) {
 }
 
 export async function getStaticProps() {
-  const palettes = await (
-    await fetch("http://localhost:3000/api/palettes/find")
-  ).json();
+  const palettes = await find();
 
   return {
     props: {
-      palettes,
+      palettes: palettes,
     },
   };
 }

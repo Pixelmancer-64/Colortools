@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Colorbox from "../../components/App/Colorbox";
 import UtilsNavbar from "../../components/App/UtilsNavbar";
+import {find, findOne} from "../../components/helpers/DB/palettes/find"
+
 import {
   ColorsContainer,
   Container,
@@ -9,9 +11,8 @@ import {
 import { generatePalette } from "../../components/helpers/Color.helper";
 
 export async function getStaticPaths() {
-  const response = await (
-    await fetch("http://localhost:3000/api/palettes/find")
-  ).json();
+  const response = await find();
+  
   return {
     paths: response.map((e) => {
       return {
@@ -26,9 +27,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { id } = params;
-  const palette = await (
-    await fetch(`http://localhost:3000/api/palettes/findOne?name=${id}`)
-  ).json();
+  const palette = await findOne(id)
+
 
   return {
     props: {

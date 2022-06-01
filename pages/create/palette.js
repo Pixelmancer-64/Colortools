@@ -7,8 +7,9 @@ import {
   Colors,
   InsertArea,
   TextInput,
-  Center
+  Center,
 } from "../../components/styles/CreatePalette";
+import { add } from "../../components/helpers/DB/palettes/add";
 
 export default function New() {
   const [color, setColor] = useState({ h: 159, s: 100, l: 79, a: 1 });
@@ -22,13 +23,9 @@ export default function New() {
 
   async function save(e) {
     e.preventDefault();
-    await fetch("http://localhost:3000/api/palettes/add", {
-      method: "POST",
-      headers: { "Content-Type": "applicaton/json" },
-      body: JSON.stringify({
-        name: title,
-        colors: colorsArray,
-      }),
+    await save({
+      name: title,
+      colors: colorsArray,
     });
   }
 
@@ -42,9 +39,7 @@ export default function New() {
           setInputStringColor={setInputStringColor}
         />
         <Button onClick={add}>Add color</Button>
-        <Center>
-
-        </Center>
+        <Center></Center>
       </InsertArea>
       <Colors>
         {colorsArray.map((color) => (
@@ -59,9 +54,9 @@ export default function New() {
         ))}
       </Colors>
       <form onSubmit={save}>
-            <TextInput type="text" onChange={(e) => setTitle(e.target.value)} />
-            <Button>Submit palette</Button>
-          </form>
+        <TextInput type="text" onChange={(e) => setTitle(e.target.value)} />
+        <Button>Submit palette</Button>
+      </form>
     </Container>
   );
 }
