@@ -5,7 +5,6 @@ import {
   Container,
   CenteredButtons,
 } from "../../components/styles/Palettes.styled";
-import { server } from "../../config/server";
 
 export default function Palettes({ palettes }) {
   return (
@@ -23,7 +22,7 @@ export default function Palettes({ palettes }) {
 
 export async function getStaticProps() {
   const palettes = await (
-    await fetch(server + "/api/palettes/find")
+    await fetch("http://localhost:3000/api/palettes/find")
   ).json();
 
   return {
