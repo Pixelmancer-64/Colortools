@@ -13,7 +13,7 @@ export default function Palettes({ palettes }) {
       <Container>
         <CenteredButtons>
           <Link href="/colorpicker">Colorpicker</Link>
-          {/* <Link href="/create/palette">Create palette</Link> */}
+          <Link href="/create/palette">Create palette</Link>
         </CenteredButtons>
         <PaletteList palettes={palettes} />
       </Container>

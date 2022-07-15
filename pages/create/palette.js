@@ -9,7 +9,6 @@ import {
   TextInput,
   Center,
 } from "../../components/styles/CreatePalette";
-import { add } from "../../components/helpers/DB/palettes/add";
 
 export default function New() {
   const [color, setColor] = useState({ h: 159, s: 100, l: 79, a: 1 });
@@ -21,9 +20,9 @@ export default function New() {
     setcolorsArray([...colorsArray, inputColorString]);
   }
 
-  async function save(e) {
-    e.preventDefault();
-    await save({
+  function save(e) {
+    console.log(e)
+    save({
       name: title,
       colors: colorsArray,
     });
